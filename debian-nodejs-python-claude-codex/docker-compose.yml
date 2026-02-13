@@ -1,0 +1,32 @@
+name: debian-nodejs
+
+services:
+  claude-code:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: claude-code
+    hostname: claude-code
+    tty: true
+    stdin_open: true
+    working_dir: /workspace
+    volumes:
+      - ./workspaces/claude-code:/workspace
+      - claude-code-home:/root
+
+  codex-cli:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: codex-cli
+    hostname: codex-cli
+    tty: true
+    stdin_open: true
+    working_dir: /workspace
+    volumes:
+      - ./workspaces/codex-cli:/workspace
+      - codex-cli-home:/root
+
+volumes:
+  claude-code-home:
+  codex-cli-home:
