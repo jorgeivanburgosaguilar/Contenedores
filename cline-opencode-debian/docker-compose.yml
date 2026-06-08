@@ -1,0 +1,61 @@
+name: cline-opencode
+
+services:
+  opencode-gemini:
+    build:
+      context: .
+      dockerfile: Dockerfile-opencode
+    container_name: opencode-gemini
+    hostname: opencode-gemini
+    tty: true
+    stdin_open: true
+    working_dir: /workspace
+    volumes:
+      - ./workspaces/opencode-gemini:/workspace
+      - opencode-gemini-home:/root
+
+  opencode-claude:
+    build:
+      context: .
+      dockerfile: Dockerfile-opencode
+    container_name: opencode-claude
+    hostname: opencode-claude
+    tty: true
+    stdin_open: true
+    working_dir: /workspace
+    volumes:
+      - ./workspaces/opencode-claude:/workspace
+      - opencode-claude-home:/root
+      
+  cline-gemini:
+    build:
+      context: .
+      dockerfile: Dockerfile-cline
+    container_name: cline-gemini
+    hostname: cline-gemini
+    tty: true
+    stdin_open: true
+    working_dir: /workspace
+    volumes:
+      - ./workspaces/cline-gemini:/workspace
+      - cline-gemini-home:/root
+      
+  cline-claude:
+    build:
+      context: .
+      dockerfile: Dockerfile-cline
+    container_name: cline-claude
+    hostname: cline-claude
+    tty: true
+    stdin_open: true
+    working_dir: /workspace
+    volumes:
+      - ./workspaces/cline-claude:/workspace
+      - cline-claude-home:/root
+
+
+volumes:
+  opencode-gemini-home:
+  opencode-claude-home:
+  cline-gemini-home:
+  cline-claude-home:
