@@ -11,7 +11,7 @@ services:
     stdin_open: true
     working_dir: /workspace
     volumes:
-      - ./workspaces/opencode-gemini:/workspace
+      - ./workspaces/opencode-gemini:/mnt/host
       - opencode-gemini-home:/root
 
   opencode-claude:
@@ -24,7 +24,7 @@ services:
     stdin_open: true
     working_dir: /workspace
     volumes:
-      - ./workspaces/opencode-claude:/workspace
+      - ./workspaces/opencode-claude:/mnt/host
       - opencode-claude-home:/root
       
   cline-gemini:
@@ -37,7 +37,7 @@ services:
     stdin_open: true
     working_dir: /workspace
     volumes:
-      - ./workspaces/cline-gemini:/workspace
+      - ./workspaces/cline-gemini:/mnt/host
       - cline-gemini-home:/root
       
   cline-claude:
@@ -50,7 +50,7 @@ services:
     stdin_open: true
     working_dir: /workspace
     volumes:
-      - ./workspaces/cline-claude:/workspace
+      - ./workspaces/cline-claude:/mnt/host
       - cline-claude-home:/root
 
 
